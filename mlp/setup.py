@@ -43,7 +43,6 @@ def extract():
     df = pd.read_sql(sql = f"SELECT {col_names_substring} FROM rental_data WHERE date BETWEEN '20110101' and '20121231'",
                     con = connection,
                     parse_dates = "date")\
-        .sort_values(["date", "hr"])\
-        .assign(weather=lambda x: x.weather.str.lower())
+        .sort_values(["date", "hr"])
 
     return df
