@@ -1,0 +1,23 @@
+
+Connection details: 
+    SERVER : "aice.database.windows.net"
+    DATABASE : "aice"
+    UID : "aice_candidate"
+    PWD : "@ic3_a3s0c1at3"
+    PORT : 1433
+
+Date limits:
+    first: 20110101
+    last: 20121231
+
+Columns to extract:
+    - date 
+    - hr 
+    - weather 
+    - temperature 
+    - feels_like_temperature 
+    - relative_humidity 
+    - windspeed 
+    - psi 
+    - guest_scooter 
+    - registered_scooter 
