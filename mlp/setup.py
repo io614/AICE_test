@@ -39,10 +39,12 @@ def extract():
     ## - all columns EXCEPT guest-bike and registered-bike
 
     col_names_substring = ",".join(config['Columns to extract'])
+    first_date = config['Date limits']['first']
+    last_date = config['Date limits']['last']
 
-    df = pd.read_sql(sql = f"SELECT {col_names_substring} FROM rental_data WHERE date BETWEEN '20110101' and '20121231'",
-                    con = connection,
-                    parse_dates = "date")\
-        .sort_values(["date", "hr"])
+    connection_string = f"SELECT {col_names_substring} FROM rental_data WHERE date BETWEEN '{first_date}' and '{last_date}' ORDER BY date, hr"
+
+    df = pd.read_sql(sql = connection_string,
+                     con = connection)
 
     return df

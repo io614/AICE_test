@@ -1,3 +1,4 @@
+## Data loading config
 
 Connection details: 
     SERVER : "aice.database.windows.net"
@@ -7,8 +8,8 @@ Connection details:
     PORT : 1433
 
 Date limits:
-    first: 20110101
-    last: 20121231
+    first: "20110101"
+    last: "20130101"
 
 Columns to extract:
     - date 
@@ -21,3 +22,18 @@ Columns to extract:
     - psi 
     - guest_scooter 
     - registered_scooter 
+
+## Preprocessing config
+
+Preprocessing:
+    weather_search_strings:
+        clear: "\\w*l\\w+r$"
+        cloudy: "\\w*l\\w+dy$"
+        light snow/rain: "\\w*l\\w+t snow.*"
+    weather_ord_encoding:
+        clear: 0
+        cloudy: 1
+        light snow/rain: 2
+        heavy snow/rain: 3
+    z_threshold: 1.5
+    rush_hours: [8, 17, 18]
