@@ -56,7 +56,7 @@ ml_config:
     scaler_params:
         with_mean: true
         with_std: true
-    cv_folds: 3
+    cv_folds: 5
     param_grid:
         n_estimators: [3, 10, 30]
         max_features: [2, 4, 6, 8]
