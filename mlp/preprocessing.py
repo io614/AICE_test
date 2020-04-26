@@ -9,9 +9,6 @@ preprocess_dict = config["Preprocessing"]
 
 # helper functions
 
-
-# drop duplicate values
-
 def drop_duplicates(df):
     """
     drop duplicates in date, hr
@@ -105,6 +102,9 @@ def combine_scooter_vars(df):
     """
     return df.assign(total_scooter=lambda x: x.guest_scooter + x.registered_scooter)\
               .drop(columns = ["guest_scooter", "registered_scooter"])
+
+
+# main function
 
 def preprocess(raw_df):
     """
