@@ -110,6 +110,7 @@ def preprocess(raw_df):
     """
     run all helper functions defined above
     """
+    print("Cleaning and augmenting data...")
     return raw_df.pipe(drop_duplicates)\
                  .pipe(correct_weather_typos)\
                  .pipe(remove_negative_scooters)\
@@ -117,3 +118,17 @@ def preprocess(raw_df):
                  .pipe(encode_weather_ordinal)\
                  .pipe(create_time_features)\
                  .pipe(combine_scooter_vars)
+
+
+def extract_preprocess():
+    """
+    extract data and run preprocessing function defined above
+    """
+    return mlp.setup.extract().pipe(preprocess)
+
+
+def extract_preprocess_split():
+    """
+    Extract and preprocess data, and split into training, validation, and test sets
+    """
+    return extract_preprocess().pipe(mlp.setup.split)

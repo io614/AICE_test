@@ -37,3 +37,30 @@ Preprocessing:
         heavy snow/rain: 3
     z_threshold: 1.5
     rush_hours: [8, 17, 18]
+
+
+## Splitting config 
+
+split_config:
+    split_random_state: 1
+    splits:
+        train : 0.7
+        test : 0.3
+
+## Machine Learning model/tuning params
+
+ml_config:
+    chosen_regressor: "ensemble.RandomForestRegressor"
+    regressor_params:
+    chosen_scaler: "preprocessing.StandardScaler"
+    scaler_params:
+        with_mean: true
+        with_std: true
+    cv_folds: 3
+    param_grid:
+        n_estimators: [3, 10, 30]
+        max_features: [2, 4, 6, 8]
+
+## How verbose the gridsearch output is
+
+verbosity: 1

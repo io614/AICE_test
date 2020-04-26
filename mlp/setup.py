@@ -1,7 +1,7 @@
 import pandas as pd
 import pyodbc
 import yaml
-
+from sklearn.model_selection import train_test_split
 
 def load_config():
     """
@@ -44,7 +44,21 @@ def extract():
 
     connection_string = f"SELECT {col_names_substring} FROM rental_data WHERE date BETWEEN '{first_date}' and '{last_date}' ORDER BY date, hr"
 
+    print("Extracting data...")
     df = pd.read_sql(sql = connection_string,
                      con = connection)
 
     return df
+
+
+def split(df):
+    """
+    splits dataframe into ratios defined in config.yaml.
+    the random state is also defined in config.yaml
+    """
+    split_config_dict = load_config()['split_config']
+    splits = split_config_dict['splits']
+    train_df, test_df = train_test_split(df, train_size=splits['train'],
+                                             random_state=split_config_dict['split_random_state'])
+
+    return train_df, test_df
