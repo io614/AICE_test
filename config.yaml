@@ -52,6 +52,7 @@ split_config:
 ml_config:
     chosen_regressor: "ensemble.RandomForestRegressor"
     regressor_params:
+        bootstrap: true
     chosen_scaler: "preprocessing.StandardScaler"
     scaler_params:
         with_mean: true

@@ -31,33 +31,33 @@ parser = argparse.ArgumentParser()
 
 # flags
 parser.add_argument("-t", "--test", help="Evaluate test set and generate evaluation metrics", action="store_true")
-parser.add_argument("-l", "--log", help="Log results in log.json. If such a file does not exist, it is created", action="store_true")
+parser.add_argument("-l", "--log", help="Log params and results in log.json. If such a file does not exist, it is created.", action="store_true")
 
 # modes (mutually exclusive)
 
 group = parser.add_mutually_exclusive_group()
 
-group.add_argument("-p", "--preview", help="Preview raw data extracted from database (part 1 of assessment). Display first N rows (default 5)", nargs="?",
+group.add_argument("-r", "--peek_raw", help="Preview raw data extracted from database (part 1 of assessment). Display first N rows (default 5)", nargs="?",
                     type=int, const=5, metavar="N")
 
-group.add_argument("-r", "--training", help="Preview training data that has been cleaned and augmented with extra features. Display first N rows (default 5)", nargs="?",
+group.add_argument("-p", "--peek_training", help="Preview training data that has been cleaned and augmented with extra features. Display first N rows (default 5)", nargs="?",
                     type=int, const=5, metavar="N")
 
 args = parser.parse_args()
 
 
 # run preview modes (if selected)
-if args.preview:
+if args.peek_raw:
     print("Previewing raw data...")
     df = mlp.setup.extract()
     print("shape:", df.shape)
-    print(df.head(args.preview))
+    print(df.head(args.peek_raw))
 
-elif args.training:
+elif args.peek_training:
     print("Previewing training data...")
     df = mlp.preprocessing.extract_preprocess_split()[0]
     print("shape:", df.shape)
-    print(df.head(args.training))
+    print(df.head(args.peek_training))
 
 else:
     pl = Pipeline()
