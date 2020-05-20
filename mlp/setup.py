@@ -42,6 +42,7 @@ def extract():
     first_date = config['Date limits']['first']
     last_date = config['Date limits']['last']
 
+    ## should be "query string"
     connection_string = f"SELECT {col_names_substring} FROM rental_data WHERE date BETWEEN '{first_date}' and '{last_date}' ORDER BY date, hr"
 
     print("Extracting data...")

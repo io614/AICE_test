@@ -7,7 +7,7 @@ from sklearn import *
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_squared_error
 
-## Load ettings from config.yaml
+## Load settings from config.yaml
 
 ml_config_dict = mlp.setup.load_config()['ml_config']
 verbosity = mlp.setup.load_config()['verbosity']

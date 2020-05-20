@@ -1,0 +1,39 @@
+[
+  {
+    "datetime": "2020-05-18 12:13:25.433193",
+    "model": "ensemble.RandomForestRegressor",
+    "model_params_user": {
+      "bootstrap": true
+    },
+    "scaler": "preprocessing.StandardScaler",
+    "scaler_params_user": {
+      "with_mean": true,
+      "with_std": true
+    },
+    "rmse_train": 192.0887867779771,
+    "rmse_cv": 493.377489975347,
+    "model_params_gridsearch": {
+      "max_features": 6,
+      "n_estimators": 30
+    }
+  },
+  {
+    "datetime": "2020-05-18 12:13:59.056553",
+    "model": "ensemble.RandomForestRegressor",
+    "model_params_user": {
+      "bootstrap": true
+    },
+    "scaler": "preprocessing.StandardScaler",
+    "scaler_params_user": {
+      "with_mean": true,
+      "with_std": true
+    },
+    "rmse_train": 191.04603481681386,
+    "rmse_cv": 495.42804941645477,
+    "model_params_gridsearch": {
+      "max_features": 6,
+      "n_estimators": 30
+    },
+    "rmse_test": 493.9541559250695
+  }
+]
